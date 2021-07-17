@@ -22,8 +22,5 @@ public class CustomerDaoTest {
     public void test() {
         CustomerVo c = dao.selectByName("kim");
         System.out.println(c);
-        System.out.println(c.getID());
-        System.out.println(c.getName());
-        System.out.println(c.getAge());
     }
 }
