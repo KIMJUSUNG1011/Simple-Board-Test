@@ -12,12 +12,6 @@
     <mvc:resources mapping="/dist/**" location="/images/dist/"/>
     <mvc:resources mapping="/plugins/**" location="/images/plugins/"/>
 
-    <!--
-    <mvc:resources mapping="/bower_components/**" location="/resources/bower_components/"/>
-    <mvc:resources mapping="/dist/**" location="/resources/dist/"/>
-    <mvc:resources mapping="/plugins/**" location="/resources/plugins/"/>
-    -->
-
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/" />
         <beans:property name="suffix" value=".jsp" />
