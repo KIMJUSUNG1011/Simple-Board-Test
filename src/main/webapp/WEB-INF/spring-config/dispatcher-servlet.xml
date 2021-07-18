@@ -8,7 +8,6 @@
 
     <mvc:annotation-driven/>
 
-    <!-- <mvc:resources mapping="/resources/**" location="/images/"/> -->
     <mvc:resources mapping="/bower_components/**" location="/images/bower_components/"/>
     <mvc:resources mapping="/dist/**" location="/images/dist/"/>
     <mvc:resources mapping="/plugins/**" location="/images/plugins/"/>
