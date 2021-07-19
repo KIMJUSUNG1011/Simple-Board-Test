@@ -4,6 +4,6 @@
 
 <configuration>
     <typeAliases>
-        <typeAlias type="org.example.board.vo.CustomerVo" alias="Customer"/>
+        <typeAlias type="org.example.board.vo.ArticleVO" alias="ArticleVO"/>
     </typeAliases>
 </configuration>
