@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring-config/applicationContext.xml"})
@@ -47,8 +49,18 @@ public class ArticleDAOTest {
         articleDAO.update(article);
     }
 
+    @Ignore
     @Test
     public void testDelete() throws Exception {
         articleDAO.delete(1);
+    }
+
+    @Ignore
+    @Test
+    public void testListAll() throws Exception {
+        List<ArticleVO> list = articleDAO.listAll();
+        for (ArticleVO a : list) {
+            System.out.println(a);
+        }
     }
 }

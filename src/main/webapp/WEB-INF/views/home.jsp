@@ -13,6 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
+<%@ page isELIgnored="false" %>
 <%@ include file="include/head.jsp" %>
 
 <!--
@@ -61,10 +62,7 @@ desired effect
         <!-- Main content -->
         <section class="content container-fluid">
 
-            <!--------------------------
-              | Your Page Content Here |
-              -------------------------->
-            <p>bootstrap 적용 성공!</p>
+            메인페이지 입니다...
 
         </section>
         <!-- /.content -->

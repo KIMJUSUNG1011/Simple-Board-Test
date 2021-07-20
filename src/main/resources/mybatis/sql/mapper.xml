@@ -27,6 +27,13 @@
         WHERE article_no = #{articleNo}
     </delete>
 
+    <select id="listAll" resultType="ArticleVO">
+        SELECT *
+        FROM tbl_article
+        WHERE article_no > 0
+        ORDER BY article_no DESC, regdate DESC
+    </select>
+
     <resultMap id="ArticleResultMap" type="ArticleVO">
         <id property="articleNo" column="article_no"/>
         <result property="title" column="title"/>

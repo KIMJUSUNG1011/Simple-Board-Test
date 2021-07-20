@@ -10,6 +10,7 @@ import java.util.List;
 public class ArticleDAOImpl implements ArticleDAO {
 
     private static final String namespace = "org.example.board.ArticleMapper";
+
     private final SqlSession sqlSession;
 
     public ArticleDAOImpl(SqlSession sqlSession) {
