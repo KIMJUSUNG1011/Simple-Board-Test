@@ -61,7 +61,6 @@ desired effect
 
         <!-- Main content -->
         <section class="content container-fluid">
-            안녕하세요
             <div class="col-lg-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">

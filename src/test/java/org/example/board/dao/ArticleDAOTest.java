@@ -22,15 +22,23 @@ public class ArticleDAOTest {
     @Autowired
     private ArticleDAO articleDAO;
 
+    @Test
+    public void testListPaging() throws Exception {
+        int page = 3;
+        List<ArticleVO> list = articleDAO.listPaging(page);
+        for (ArticleVO a : list) {
+            System.out.println(a.getArticleNo());
+        }
+    }
+
     @Ignore
     @Test
     public void testCreate() throws Exception {
-        System.out.print(articleDAO);
-        ArticleVO article = new ArticleVO();
-        article.setTitle("새로운 제목");
-        article.setContent("새로운 내용");
-        article.setWriter("주성");
-        articleDAO.create(article);
+        ArticleVO articleVO = new ArticleVO();
+        articleVO.setTitle("제목 " + 1000);
+        articleVO.setContent("내용 " + 1000);
+        articleVO.setWriter(1000 + "");
+        articleDAO.create(articleVO);
     }
 
     @Ignore
