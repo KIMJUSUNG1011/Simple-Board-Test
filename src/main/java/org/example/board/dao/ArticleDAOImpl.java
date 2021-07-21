@@ -1,6 +1,7 @@
 package org.example.board.dao;
 
 import org.apache.ibatis.session.SqlSession;
+import org.example.board.commons.paging.Criteria;
 import org.example.board.vo.ArticleVO;
 import org.springframework.stereotype.Repository;
 
@@ -43,11 +44,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     @Override
-    public List<ArticleVO> listPaging(int page) throws Exception {
-        if (page <= 0) {
-            page = 1;
-        }
-        page = (page - 1) * 10;
-        return sqlSession.selectList(namespace + ".listPaging", page);
+    public List<ArticleVO> listCriteria(Criteria criteria) throws Exception {
+        return sqlSession.selectList(namespace + ".listCriteria", criteria);
     }
 }

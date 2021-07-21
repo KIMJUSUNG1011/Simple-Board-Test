@@ -1,5 +1,6 @@
 package org.example.board.dao;
 
+import org.example.board.commons.paging.Criteria;
 import org.example.board.vo.ArticleVO;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -23,9 +24,11 @@ public class ArticleDAOTest {
     private ArticleDAO articleDAO;
 
     @Test
-    public void testListPaging() throws Exception {
-        int page = 3;
-        List<ArticleVO> list = articleDAO.listPaging(page);
+    public void testListCriteria() throws Exception {
+        Criteria criteria = new Criteria();
+        criteria.setPage(3);
+        criteria.setPerPageNum(20);
+        List<ArticleVO> list = articleDAO.listCriteria(criteria);
         for (ArticleVO a : list) {
             System.out.println(a.getArticleNo());
         }

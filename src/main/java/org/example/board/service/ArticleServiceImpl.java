@@ -1,5 +1,6 @@
 package org.example.board.service;
 
+import org.example.board.commons.paging.Criteria;
 import org.example.board.dao.ArticleDAO;
 import org.example.board.vo.ArticleVO;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,10 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<ArticleVO> listAll() throws Exception {
         return articleDAO.listAll();
+    }
+
+    @Override
+    public List<ArticleVO> listCriteria(Criteria criteria) throws Exception {
+        return articleDAO.listCriteria(criteria);
     }
 }
