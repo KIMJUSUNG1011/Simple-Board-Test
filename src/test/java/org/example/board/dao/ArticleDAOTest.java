@@ -23,6 +23,7 @@ public class ArticleDAOTest {
     @Autowired
     private ArticleDAO articleDAO;
 
+    @Ignore
     @Test
     public void testListCriteria() throws Exception {
         Criteria criteria = new Criteria();
@@ -44,7 +45,6 @@ public class ArticleDAOTest {
         articleDAO.create(articleVO);
     }
 
-    @Ignore
     @Test
     public void testRead() throws Exception {
         logger.info(articleDAO.read(1).toString());

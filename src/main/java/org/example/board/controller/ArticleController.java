@@ -1,5 +1,6 @@
 package org.example.board.controller;
 
+import org.example.board.commons.paging.Criteria;
 import org.example.board.service.ArticleService;
 import org.example.board.vo.ArticleVO;
 import org.springframework.stereotype.Controller;
@@ -28,15 +29,19 @@ public class ArticleController {
     public String writePOST(ArticleVO articleVO, RedirectAttributes redirectAttributes) throws Exception {
         articleService.create(articleVO);
         redirectAttributes.addFlashAttribute("msg", "regSuccess");
-
         return "redirect:/article/list";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) throws Exception {
         model.addAttribute("articles", articleService.listAll());
-
         return "/article/list";
+    }
+
+    @RequestMapping(value = "/listCriteria", method = RequestMethod.GET)
+    public String list(Model model, Criteria criteria) throws Exception {
+        model.addAttribute("articles", articleService.listCriteria(criteria));
+        return "/article/list_criteria";
     }
 
     @RequestMapping(value = "/read", method = RequestMethod.GET)
@@ -48,7 +53,6 @@ public class ArticleController {
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
     public String modifyGET(@RequestParam("articleNo") int articleNo, Model model) throws Exception{
         model.addAttribute("article", articleService.read(articleNo));
-
         return "/article/modify";
     }
 
@@ -56,7 +60,6 @@ public class ArticleController {
     public String modifyPOST(ArticleVO articleVO, RedirectAttributes redirectAttributes) throws Exception {
         articleService.update(articleVO);
         redirectAttributes.addFlashAttribute("msg", "modSuccess");
-
         return "redirect:/article/list";
     }
 
@@ -64,7 +67,6 @@ public class ArticleController {
     public String remove(@RequestParam("articleNo") int articleNo, RedirectAttributes redirectAttributes) throws Exception {
         articleService.delete(articleNo);
         redirectAttributes.addFlashAttribute("msg", "delSuccess");
-
         return "redirect:/article/list";
     }
 }
