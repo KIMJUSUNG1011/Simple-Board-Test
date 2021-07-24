@@ -1,6 +1,7 @@
 package org.example.board.controller;
 
 import org.example.board.commons.paging.Criteria;
+import org.example.board.commons.paging.PageMaker;
 import org.example.board.service.ArticleService;
 import org.example.board.vo.ArticleVO;
 import org.springframework.stereotype.Controller;
@@ -42,6 +43,16 @@ public class ArticleController {
     public String list(Model model, Criteria criteria) throws Exception {
         model.addAttribute("articles", articleService.listCriteria(criteria));
         return "/article/list_criteria";
+    }
+
+    @RequestMapping(value = "/listPaging", method = RequestMethod.GET)
+    public String listPaging(Model model, Criteria criteria) throws Exception {
+       PageMaker pageMaker = new PageMaker();
+       pageMaker.setCriteria(criteria);
+       pageMaker.setTotalCount(1000);
+       model.addAttribute("articles", articleService.listCriteria(criteria));
+       model.addAttribute("pageMaker", pageMaker);
+       return "/article/list_paging";
     }
 
     @RequestMapping(value = "/read", method = RequestMethod.GET)
