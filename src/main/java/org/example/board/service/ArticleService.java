@@ -12,4 +12,5 @@ public interface ArticleService {
     void delete(int articleNo) throws Exception;
     List<ArticleVO> listAll() throws Exception;
     List<ArticleVO> listCriteria(Criteria criteria) throws Exception;
+    int countArticles() throws Exception;
 }

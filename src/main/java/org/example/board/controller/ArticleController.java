@@ -49,7 +49,7 @@ public class ArticleController {
     public String listPaging(Model model, Criteria criteria) throws Exception {
        PageMaker pageMaker = new PageMaker();
        pageMaker.setCriteria(criteria);
-       pageMaker.setTotalCount(1000);
+       pageMaker.setTotalCount(articleService.countArticles());
        model.addAttribute("articles", articleService.listCriteria(criteria));
        model.addAttribute("pageMaker", pageMaker);
        return "/article/list_paging";
